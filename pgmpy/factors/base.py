@@ -58,6 +58,10 @@ def factor_product(*args):
             [[10, 30],
              [55, 77]]]])
     """
+    test = len(set(map(type, args)))
+    if test == 0:
+        return 1
+
     if not all(isinstance(phi, BaseFactor) for phi in args):
         raise TypeError("Arguments must be factors")
     # Check if all of the arguments are of the same type
