@@ -812,5 +812,4 @@ class DiscreteFactor(BaseFactor):
             phi.cardinality[axis], phi.cardinality[exchange_index] = (phi.cardinality[exchange_index],
                                                                       phi.cardinality[axis])
             phi.values = phi.values.swapaxes(axis, exchange_index)
-        return hash(str(sorted_var_hashes) + str(phi.values) + str(phi.cardinality))
-
+        return hash(str(phi.variables) + str(phi.values.data.tobytes()) + str(phi.cardinality.data.tobytes()))
